@@ -1,0 +1,21 @@
+export const icons =
+            [
+                { "key": "normal", "value": "fa-solid fa-circle-dot" },
+                { "key": "water", "value": "fa-solid fa-droplet" },
+                { "key": "grass", "value": "fa-solid fa-leaf" },
+                { "key": "electric", "value": "fa-solid fa-bolt" },
+                { "key": "ice", "value": "fa-solid fa-snowflake" },
+                { "key": "fighting", "value": "fa-solid fa-hand-fist" },
+                { "key": "poison", "value": "fa-solid fa-skull-crossbones" },
+                { "key": "ground", "value": "fa-solid fa-mountain-sun" },
+                { "key": "rock", "value": "fa-solid fa-mountain" },
+                { "key": "flying", "value": "fa-solid fa-feather" },
+                { "key": "psychic", "value": "fa-solid fa-eye" },
+                { "key": "dark", "value": "fa-solid fa-moon" },
+                { "key": "steel", "value": "fa-solid fa-weight-hanging" },
+                { "key": "fairy", "value": "fa-solid fa-wand-sparkles" },
+                { "key": "dragon", "value": "fa-solid fa-dragon" },
+                { "key": "ghost", "value": "fa-solid fa-ghost" },
+                { "key": "fire", "value": "fa-solid fa-fire" },
+                { "key": "bug", "value": "fa-solid fa-bug" },
+            ]
