@@ -9,7 +9,7 @@
           available stats and click the <span class="blue">confirm</span> button to apply the changes to the <span
             class="blue">global</span> stats.</h3>
         <ul class="evs-ul">
-          <li class="evs-container" v-for="(ev, key, index) in evsObject">
+          <li class="evs-container" v-for="(ev, key) in evsObject" :key="key">
             <h3 class="evs-title">{{ key }}'s <span class="blue">EVs</span>:</h3>
             <div class="btn-container">
               <button class="decrement-btn" @click="decreaseEV(key)"> - </button>

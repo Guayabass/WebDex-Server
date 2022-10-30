@@ -127,7 +127,7 @@ import { statNames } from '../exports/statNames';
 //const pokemonStore = usePokemonStore()
 
 export default {
-    name: "Pokemon",
+    name: "PokemonCard",
     // setup() {
     //     const pokemonStore = usePokemonStore()
 
