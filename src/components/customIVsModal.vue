@@ -9,7 +9,7 @@
           available stats and click the <span class="blue">confirm</span> button to apply the changes to the <span
             class="blue">global</span> stats.</h3>
         <ul class="ivs-ul">
-          <li class="ivs-container" v-for="(iv, key) in ivsObject" :key="key">
+          <li class="ivs-container" v-for="(iv, key, index) in ivsObject">
             <h3 class="ivs-title">{{key}}'s <span class="blue">IVs</span>:</h3>
             <div class="btn-container">
               <button class="decrement-btn" @click="decreaseIV(key)"> - </button>
@@ -19,7 +19,7 @@
             </div>
           </li>
         </ul>
-        <h3><strong>NOTE:</strong> Changing Pokemon will <span class="red">NOT</span> automatically reset any custom IVs/EVs/Nature set.</h3>
+        <h3 class="note"><strong>NOTE:</strong> Changing Pokemon will <span class="red">NOT</span> automatically reset any custom IVs/EVs/Nature set.</h3>
       </div>
       <div class="modal-footer">
         <div class="btns-container">
@@ -139,7 +139,7 @@ export default {
 
 .modal {
   position: absolute;
-  z-index: 1;
+  z-index: 10;
   /* Sit on top */
   left: 0;
   top: 0;
@@ -165,7 +165,7 @@ export default {
   pointer-events: all;
   margin: 0 auto;
   width: 60%;
-  height: 50%;
+  height: 60%;
   border-radius: 8px;
   border: none;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -438,6 +438,87 @@ input[type=number] {
 
   to {
     top: 0;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .modal {
+    position: fixed;
+  }
+
+  .modal-content{
+    width: 90%;
+    height: 70%;
+  }
+
+  .title{
+    font-size: 12px;
+    line-height: 24px;
+  }
+
+  .note{
+    display: none;
+  }
+
+  .modal-body{
+    justify-content: space-evenly;
+    width: 100%;
+  }
+
+  .ivs-title{
+    font-size: 12px;
+  }
+
+  .ivs-container h3{
+    width: 55%;
+    text-align: left;
+    margin-right: 0;
+  }
+
+  .ivs-container{
+    justify-content: space-around;
+  }
+}
+
+@media only screen and (min-width: 500px){
+  .ivs-container h3{
+    width: 40%;
+    text-align: right;
+    margin-right: 25%;
+  }
+
+  .ivs-container{
+    justify-content: flex-start;
+  }
+
+  .ivs-title{
+    font-size: 16px;
+  }
+}
+
+@media only screen and (max-height: 900px) and (min-width: 768px){
+  .modal-content{
+    width: 70%;
+    height: 70%;
+  }
+
+  .btn-container{
+    width: 10%;
+  }
+
+  .note{
+    display: none;
+  }
+
+  .ivs-title{
+    font-size: 16px;
+  }
+}
+
+@media only screen and (max-height: 900px){
+  .modal-content{
+    width: 90%;
+    height: 80%;
   }
 }
 </style>

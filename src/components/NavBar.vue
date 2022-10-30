@@ -17,7 +17,7 @@ export default {
     methods: {
         checkFalse() {
             const pokemonStore = usePokemonStore();
-            if (pokemonStore.showNature || pokemonStore.showIVs || pokemonStore.showEVs){
+            if (pokemonStore.showNature || pokemonStore.showIVs || pokemonStore.showEVs) {
                 return true
             } else {
                 return false
@@ -29,7 +29,6 @@ export default {
 </script>
 
 <style>
-
 @import url('https://fonts.cdnfonts.com/css/pokemon-solid');
 
 #nav {
@@ -84,4 +83,13 @@ export default {
     margin: 8px 0 8px 0;
 }
 
+@media only screen and (max-width: 768px) {
+    #nav{
+        height: 10%;
+    }
+
+    .nav-container {
+        transform: scale(0.7);
+    }
+}
 </style>

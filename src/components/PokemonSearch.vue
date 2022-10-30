@@ -179,7 +179,7 @@ header .main-container {
 }
 
 .sub-title-wrapper {
-    width: 60%;
+    width: 80%; /** update in production */
 }
 
 i {
@@ -226,6 +226,31 @@ i {
 
 .disabled-events {
     pointer-events: none;
+}
+
+@media only screen and (max-width: 768px) {
+    .sub-title{
+        font-size: 18px;
+    }
+    .sub-title-wrapper{
+        width: 100%;
+    }
+
+    header .main-container{
+        margin-bottom: 0;
+    }
+
+    .btn.btn-search{
+        margin: 12px;
+    }
+
+    .form{
+        width: 70%;
+    }
+
+    .btn{
+        padding: 12px 8px;
+    }
 }
 </style>
 

@@ -3,12 +3,12 @@
         <Transition name="button">
             <button class="pokemon-change" v-if="Object.entries(checkPokemon()).length > 0"
                 :disabled="Object.entries(checkPokemon()).length === 0"
-                :class="{ 'disabled': Object.entries(checkPokemon()).length === 0}" @click="previousPokemon()"><i
+                :class="{ 'disabled': Object.entries(checkPokemon()).length === 0 }" @click="previousPokemon()"><i
                     class="fa-solid fa-chevron-left"></i></button>
             <!--the if is just there for transition purposes -->
         </Transition>
         <Transition name="fade" mode="out-in">
-            <div class="pokemon" :class="{'disabled': stats }"
+            <div class="pokemon" :class="{ 'disabled': stats }"
                 v-if="Object.entries(checkPokemon()).length > 0 && !stats">
                 <div class="info-container">
                     <h1 :class="colorText()">
@@ -41,18 +41,19 @@
                 <div class="card-change-wrapper tooltip-container">
                     <button class="card-change" @click="stats = !stats" :disabled="stats"><i
                             class="fa-solid fa-chart-simple"></i></button>
-                    <p class="tooltiptext">{{'Click to show '+capitalize(checkPokemon().name) +' stats!'}}</p>
+                    <p class="tooltiptext">{{ 'Click to show ' + capitalize(checkPokemon().name) + ' stats!' }}</p>
                 </div>
             </div>
-            <div class="pokemon" :class="{'disabled': !stats}" v-else-if="stats">
+            <div class="pokemon" :class="{ 'disabled': !stats }" v-else-if="stats">
                 <div class="typings-container">
                     <h1>
                         Typings
                     </h1>
                     <ul class="typings">
                         <li class="pokemon-type" v-for="(type, index) in checkPokemon().types" :key="index"
-                            :class="type.type.name + '-b' "><i :class="iconReturn(type.type.name)"></i>{{
-                            capitalize(type.type.name) }}</li>
+                            :class="type.type.name + '-b'"><i :class="iconReturn(type.type.name)"></i>{{
+                                    capitalize(type.type.name)
+                            }}</li>
                     </ul>
                 </div>
                 <div class="stats-container">
@@ -60,11 +61,11 @@
                     <ul class="stats">
                         <li v-for="(stat, index) in checkPokemon().stats" :key="index">
                             <div class="stat-name-wrapper">
-                                <p class="stat-name">{{returnStatNames(stat.stat.name)}}</p>
+                                <p class="stat-name">{{ returnStatNames(stat.stat.name) }}</p>
                             </div>
                             <div class="stat-base-wrapper" :class="colorTextBackground()"
-                                :style="{'width': pokemonLevel*0.70+'%'}">
-                                <p class="stat-base">{{baseStatMultiplier(stat.stat.name, stat.base_stat, index)}}</p>
+                                :style="{ 'width': pokemonLevel * 0.70 + '%' }">
+                                <p class="stat-base">{{ baseStatMultiplier(stat.stat.name, stat.base_stat, index) }}</p>
                             </div>
                         </li>
                         <div class="stats-button-container">
@@ -86,10 +87,10 @@
                 <div class="last-stats-wrapper">
                     <div class="slider-container">
                         <input type="range" min="1" max="100" id="myRange" v-model="pokemonLevel" class="slider"
-                            :style="'background: linear-gradient(90deg, rgb(23, 114, 212) '+pokemonLevel+'%, rgb(214, 214, 214) '+pokemonLevel+'%);'">
+                            :style="'background: linear-gradient(90deg, rgb(23, 114, 212) ' + pokemonLevel + '%, rgb(214, 214, 214) ' + pokemonLevel + '%);'">
                         <div class="slider-text-container">
                             <p class="slider-text">1</p>
-                            <p class="slider-text">Level: {{pokemonLevel}}</p>
+                            <p class="slider-text">Level: {{ pokemonLevel }}</p>
                             <p class="slider-text">100</p>
                         </div>
                     </div>
@@ -97,12 +98,12 @@
                         <div class="change-btn-wrapper tooltip-container">
                             <button class="card-change" @click="stats = !stats" :disabled="!stats"><i
                                     class="fa-solid fa-arrow-left-long"></i></button>
-                            <p class="tooltiptext">{{'Click to go back the info page!'}}</p>
+                            <p class="tooltiptext">{{ 'Click to go back the info page!' }}</p>
                         </div>
                         <div class="change-btn-wrapper tooltip-container">
                             <button class="card-change" @click="resetCustomStats()" :disabled="!stats"><i
                                     class="fa-solid fa-trash"></i></button>
-                            <p class="tooltiptext">{{'Click to reset the custom stats (IVs/EVs/Nature)!'}}</p>
+                            <p class="tooltiptext">{{ 'Click to reset the custom stats (IVs/EVs/Nature)!' }}</p>
                         </div>
                     </div>
                 </div>
@@ -111,7 +112,7 @@
         <Transition name="button">
             <button class="pokemon-change" v-if="Object.entries(checkPokemon()).length > 0"
                 :disabled="Object.entries(checkPokemon()).length === 0"
-                :class="{ 'disabled': Object.entries(checkPokemon()).length === 0}" @click="nextPokemon()"><i
+                :class="{ 'disabled': Object.entries(checkPokemon()).length === 0 }" @click="nextPokemon()"><i
                     class="fa-solid fa-chevron-right"></i></button>
             <!--the if is just there for transition purposes -->
         </Transition>
@@ -126,7 +127,12 @@ import { statNames } from '../exports/statNames';
 //const pokemonStore = usePokemonStore()
 
 export default {
-    name: "PokemonCard",
+    name: "Pokemon",
+    // setup() {
+    //     const pokemonStore = usePokemonStore()
+
+    //     return { pokemonStore } 
+    // }, //realized a bit too late that you could do this.
     data() {
         return {
             stats: false,
@@ -580,6 +586,10 @@ h1 {
     transition: transform 300ms ease;
 }
 
+.pokemon-change i{
+    padding: 0;
+}
+
 .pokemon-change:active {
     /*cuando es clicked*/
     transform: translateY(4px);
@@ -829,6 +839,96 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+/* @media only screen and (max-width: 768px) {
+    .pokemon-change{
+        z-index: 2;
+    }
+} */
+
+@media only screen and (max-width: 476px) and (min-width: 452px) {
+    .pokemon-change {
+        z-index: 2;
+        margin: 0 16px;
+    }
+
+    .pokemon {
+        background: linear-gradient(145deg, #e6e6e6, #ffffff);
+        box-shadow: 15px 15px 30px #bababa,
+            -15px -15px 30px #ffffff;
+    }
+}
+
+@media only screen and (max-width: 452px) {
+    .pokemon-change {
+        z-index: 2;
+    }
+
+    .pokemon {
+        background: linear-gradient(145deg, #e6e6e6, #ffffff);
+        box-shadow: 15px 15px 30px #bababa,
+            -15px -15px 30px #ffffff;
+    }
+
+    .stat-name,
+    .stat-base {
+        font-size: 11px;
+    }
+}
+
+@media only screen and (max-width: 388px) {
+    .pokemon-change {
+        z-index: 2;
+    }
+
+    .pokemon {
+        background: linear-gradient(145deg, #e6e6e6, #ffffff);
+        box-shadow: 15px 15px 30px #bababa,
+            -15px -15px 30px #ffffff;
+    }
+
+    .typings li {
+        font-size: 14px;
+    }
+
+    .stat-name,
+    .stat-base {
+        font-size: 10px;
+    }
+
+    .stats-button-container{
+        height: 40%;
+    }
+
+    .stats-button{
+        font-size: 10px;
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    .pokemon-change {
+        z-index: 2;
+    }
+
+    .pokemon {
+        background: linear-gradient(145deg, #e6e6e6, #ffffff);
+        box-shadow: 15px 15px 30px #bababa,
+            -15px -15px 30px #ffffff;
+    }
+
+    .typings li {
+        font-size: 14px;
+    }
+
+    .stat-name,
+    .stat-base {
+        font-size: 9px;
+    }
+
+    .stats-button{
+        font-size: 9px;
+    }
 }
 </style>
 
