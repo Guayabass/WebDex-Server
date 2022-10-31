@@ -69,4 +69,10 @@ const pokemonStore = usePokemonStore()
 .fade-leave-active {
     transition: opacity 800ms ease;
 }
+
+@media only screen and (max-width: 768px) {
+  #PokemonApp{
+    width: 100%;
+  }
+}
 </style>

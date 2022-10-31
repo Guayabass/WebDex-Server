@@ -586,7 +586,7 @@ h1 {
     transition: transform 300ms ease;
 }
 
-.pokemon-change i{
+.pokemon-change i {
     padding: 0;
 }
 
@@ -841,11 +841,11 @@ h1 {
     justify-content: center;
 }
 
-/* @media only screen and (max-width: 768px) {
-    .pokemon-change{
+@media only screen and (max-width: 768px) {
+    .pokemon-change {
         z-index: 2;
     }
-} */
+}
 
 @media only screen and (max-width: 476px) and (min-width: 452px) {
     .pokemon-change {
@@ -897,11 +897,11 @@ h1 {
         font-size: 10px;
     }
 
-    .stats-button-container{
+    .stats-button-container {
         height: 40%;
     }
 
-    .stats-button{
+    .stats-button {
         font-size: 10px;
     }
 }
@@ -926,7 +926,7 @@ h1 {
         font-size: 9px;
     }
 
-    .stats-button{
+    .stats-button {
         font-size: 9px;
     }
 }
