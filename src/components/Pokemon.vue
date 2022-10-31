@@ -875,6 +875,15 @@ h1 {
     .stat-base {
         font-size: 11px;
     }
+
+    .stats li {
+        height: 10%;
+    }
+
+    .stats-button-container {
+        align-items: flex-start;
+        margin-top: 24px;
+    }
 }
 
 @media only screen and (max-width: 388px) {
@@ -894,7 +903,7 @@ h1 {
 
     .stat-name,
     .stat-base {
-        font-size: 10px;
+        font-size: 11px;
     }
 
     .stats-button-container {
@@ -921,13 +930,16 @@ h1 {
         font-size: 14px;
     }
 
-    .stat-name,
-    .stat-base {
+    .stat-name {
         font-size: 9px;
     }
 
     .stats-button {
         font-size: 9px;
+    }
+
+    .stat-base{
+        font-size: 10px;
     }
 }
 </style>
