@@ -521,4 +521,11 @@ input[type=number] {
     height: 80%;
   }
 }
+
+@media only screen and (max-height: 600px){
+  .modal-content{
+    width: 90%;
+    height: 90%;
+  }
+}
 </style>

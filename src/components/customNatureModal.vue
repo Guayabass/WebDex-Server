@@ -512,10 +512,10 @@ export default {
 
 }
 
-/*@media only screen and (max-height: 900px) {
+@media only screen and (max-height: 900px) {
   .modal-content {
     width: 90%;
     height: 80%;
   }
-} */
+}
 </style>
