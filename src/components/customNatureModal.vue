@@ -15,7 +15,7 @@
           </div>
           <Transition name="fade" mode="out-in">
             <ul class="options-ul" v-if="!showNatures" :disabled="!showNatures">
-              <li class="option" v-for="(nature, index) in natures" @click="setNature(nature, index)" :key="index">
+              <li class="option" v-for="(nature, index) in natures" @click="setNature(nature, index)">
                 <i class="fa-solid fa-arrow-right"></i>
                 <p class="option-txt">{{ nature.name }}</p>
               </li>
@@ -512,10 +512,10 @@ export default {
 
 }
 
-@media only screen and (max-height: 900px) {
+/*@media only screen and (max-height: 900px) {
   .modal-content {
     width: 90%;
     height: 80%;
   }
-}
+} */
 </style>

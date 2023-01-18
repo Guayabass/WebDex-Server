@@ -1,33 +1,21 @@
 <script setup>
-import PokemonSearch from './components/PokemonSearch.vue';
-import Pokemon from './components/Pokemon.vue';
-import NavBar from './components/NavBar.vue';
-import CustomIVsModal from './components/customIVsModal.vue';
-import CustomEVsModal from './components/customEVsModal.vue';
-import CustomNatureModal from './components/customNatureModal.vue';
+// import { usePokemonStore } from '../src/stores/pokemonStore';
+// import PokemonSearch from './components/PokemonSearch.vue';
+// import Pokemon from './components/Pokemon.vue';
+// import NavBar from './components/NavBar.vue';
+// import CustomIVsModal from './components/customIVsModal.vue';
+// import CustomEVsModal from './components/customEVsModal.vue';
+// import CustomNatureModal from './components/customNatureModal.vue';
+// const pokemonStore = usePokemonStore();
 
-import { usePokemonStore } from '../src/stores/pokemonStore';
-
-const pokemonStore = usePokemonStore()
 
 </script>
 
 <template>
-  <main id="PokemonApp">
-    <NavBar></NavBar>
-    <PokemonSearch></PokemonSearch>
-    <Pokemon ></Pokemon>
-    <Transition name="fade">
-      <CustomIVsModal v-if="pokemonStore.showIVs"></CustomIVsModal>
-    </Transition>
-    <Transition name="fade">
-      <CustomEVsModal v-if="pokemonStore.showEVs"></CustomEVsModal>
-    </Transition>
-    <Transition name="fade">
-      <CustomNatureModal v-if="pokemonStore.showNature"></CustomNatureModal>
-    </Transition>
+    <main id="PokemonApp">
+     <!-- <router-link to="/pokemon/test">pokemon</router-link>  -->
+   <router-view/> 
   </main>
-
 </template>
 
 

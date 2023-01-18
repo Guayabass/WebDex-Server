@@ -9,16 +9,16 @@ import { ref } from 'vue'
 export default {
     name: 'PokemonSearch',
     setup() {
+        const pokemonStore = usePokemonStore();
         const inputField = ref()
         const focusInput = () => {
             inputField.value.focus()
         }
-        return { focusInput, inputField }
+        return { focusInput, inputField, pokemonStore }
     },
     data() {
         return {
             pokemonNameOrID: '',
-            defaultPokemon: {}
         }
     },
     methods: {
@@ -40,7 +40,8 @@ export default {
                         const pokemonToFind = await fetch(`${pokeapi}/${this.pokemonNameOrID}`)//aggara el pokemon con el id
                         const pokemon = await pokemonToFind.json()
                         //console.log(pokemon)
-                        this.addPokemon(pokemon, this.pokemonNameOrID)
+                        this.$router.replace('/pokemon/' + pokemon.name)
+                        this.addPokemon(pokemon, this.pokemonNameOrID)                       
                         return pokemon
                     }
                 }
@@ -270,8 +271,8 @@ i {
                     <span class="content-pokemon">Pokemon's Name/ID</span>
                 </label>
             </div>
-            <button class="btn btn-search" @click="searchPokemon()"><i
-                    class="fa-sharp fa-solid fa-magnifying-glass"></i>Search Pokemon</button>
+            <router-link :to="'/pokemon/' + pokemonNameOrID"><button class="btn btn-search" @click="searchPokemon()"><i
+                    class="fa-sharp fa-solid fa-magnifying-glass"></i>Search Pokemon</button></router-link>
         </div>
     </header>
     <!--<header class="search">

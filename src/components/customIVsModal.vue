@@ -9,7 +9,7 @@
           available stats and click the <span class="blue">confirm</span> button to apply the changes to the <span
             class="blue">global</span> stats.</h3>
         <ul class="ivs-ul">
-          <li class="ivs-container" v-for="(iv, key) in ivsObject" :key="key">
+          <li class="ivs-container" v-for="(iv, key, index) in ivsObject">
             <h3 class="ivs-title">{{key}}'s <span class="blue">IVs</span>:</h3>
             <div class="btn-container">
               <button class="decrement-btn" @click="decreaseIV(key)"> - </button>
@@ -272,6 +272,7 @@ input {
 
 .btn-container {
   width: 12%;
+  max-width: 10%;
   height: 10%;
   display: flex;
   align-items: center;
